@@ -55,7 +55,10 @@ def main(base_model_name, weights_file, image_source, predictions_file, img_form
         sample['mean_score_prediction'] = calc_mean_score(predictions[i])
 
     print(json.dumps(samples, indent=2))
-
+    predictions_file = "/src/predict.json"
+    print("image_source:",image_source)
+    print("saving data:", predictions_file)
+    save_json(samples, predictions_file)
     if predictions_file is not None:
         save_json(samples, predictions_file)
 
